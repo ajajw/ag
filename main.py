@@ -64,7 +64,7 @@ async def my_event_handler(m):
         return
     ccs.append(cc)
     extra = cc[0:0+12]
-    apis = requests.get(f"https://www.netotf.space/v1/api/bin/{cc[:6]}").json()
+    apis = requests.get(f"https://projectslost.xyz/bin/?bin={cc[:6]}").json()
     if not bin:
         return
     bin_json =  bin.json()
@@ -73,11 +73,11 @@ async def my_event_handler(m):
     text = f"""
 💵 𝘾𝘾: `{cc}|{mes}|{ano}|{cvv}`
 
-📝𝘽𝙄𝙉 𝙄𝙉𝙁𝙊: `{cc[:6]}` {bin_json['brand']} - {bin_json['type']} - {bin_json['level']}
+📝𝘽𝙄𝙉 𝙄𝙉𝙁𝙊: `{cc[:6]}` `{bin_json['brand']} - {bin_json['type']} - {bin_json['level']}`
 
-`{bin_json['bank']}`
+`{bin_json['bank']['name']}`
 
-𝘾𝙊𝙐𝙉𝙏𝙍𝙔: `{bin_json['country']} - {bin_json['code']} - {bin_json['flag']}`
+𝘾𝙊𝙐𝙉𝙏𝙍𝙔: `{bin_json['country']['name']} - {bin_json['country']['flag']`
 
 𝙀𝙓𝙏𝙍𝘼 `{extra}xxxx|{mes}|{ano}|rnd`
 
